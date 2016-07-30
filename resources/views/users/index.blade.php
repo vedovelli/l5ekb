@@ -26,5 +26,8 @@
             @endforeach()
         </tbody>
     </table>
+    <div class="text-center">
+        {{ $users->render() }}
+    </div>
 @stop
 
