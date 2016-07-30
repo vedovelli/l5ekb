@@ -21,13 +21,13 @@ class UsersTableSeeder extends Seeder
     {
         \DB::table('users')->truncate();
 
-        $u = \App\User::create([
+        $u = \Louis\Models\User::create([
             'name' => 'Ved',
             'email' => 'vedovelli@gmail.com',
             'age' => '42',
             'password' => bcrypt(123456),
         ]);
-        factory(\App\User::class, 100)->create();
+        factory(\Louis\Models\User::class, 100)->create();
     }
 }
 
