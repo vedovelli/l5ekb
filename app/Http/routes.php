@@ -5,6 +5,7 @@ Route::get('/', function () {
 });
 
 Route::get('usuarios', function () {
-    $users = \App\User::all();
-    dd($users->toArray());
+    $users = \Louis\Models\User::all();
+    $addresses = [];
+    return view('users.index')->with(compact('users', 'addresses'));
 });
