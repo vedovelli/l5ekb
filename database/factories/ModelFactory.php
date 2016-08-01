@@ -1,6 +1,6 @@
 <?php
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Louis\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'age' => $faker->numberBetween(18, 65),
