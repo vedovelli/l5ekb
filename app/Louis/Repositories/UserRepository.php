@@ -23,6 +23,7 @@ class UserRepository {
     public function store($input)
     {
         $user = new User($input);
+        $user->password = bcrypt($input['password']);
         $user->save();
         return $user;
     }
