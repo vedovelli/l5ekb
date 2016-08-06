@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Criar novo usuário</h1>
+    <h1>Editar usuário {{ $user->name }}</h1>
+
     @include('partials.alerts')
-    {{ Form::open(['route' => 'users.store']) }}
+
+    {{ Form::model($user, ['route' => ['users.update', $user->id]]) }}
         @include('users.partials.form')
-        <button class="btn btn-primary" type="submit">Salvar</button>
+        <button class="btn btn-success" type="submit">Atualizar</button>
         <a href="{{ route('users.index') }}" class="btn btn-default btn-xs">Voltar</a>
     {{ Form::close() }}
 @stop
