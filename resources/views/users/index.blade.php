@@ -36,7 +36,7 @@
                 <td>{{ $user->email }}</td>
                 <td width="1%" nowrap="nowrap">
                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-default btn-xs">Editar</a>
-                    <a href="{{ route('users.delete', $user->id) }}" class="btn btn-default btn-xs">Excluir</a>
+                    <a href="{{ route('users.delete', $user->id) }}" class="btn btn-default btn-xs btn-remover">Excluir</a>
                 </td>
             </tr>
             @endforeach()
@@ -45,5 +45,9 @@
     <div class="text-center">
         {{ $users->render() }}
     </div>
+@stop
+
+@section('scripts')
+    <script src="/js/users.js"></script>
 @stop
 

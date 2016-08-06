@@ -12,3 +12,7 @@ Route::group(['prefix' => 'usuarios', 'as' => 'users.'], function () {
     Route::post('inserir', ['as' => 'store', 'uses' => 'UsersController@store']);
     Route::post('atualizar/{id}', ['as' => 'update', 'uses' => 'UsersController@update']);
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
