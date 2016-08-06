@@ -24,6 +24,7 @@
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>E-mail</th>
+                <th width="1%" nowrap>Vendas</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -34,6 +35,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->age }}</td>
                 <td>{{ $user->email }}</td>
+                <td>{{ count($user->sales) }}</td>
                 <td width="1%" nowrap="nowrap">
                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-default btn-xs">Editar</a>
                     <a href="{{ route('users.delete', $user->id) }}" class="btn btn-default btn-xs btn-remover">Excluir</a>

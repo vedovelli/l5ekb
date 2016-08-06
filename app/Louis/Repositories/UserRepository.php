@@ -7,12 +7,13 @@ class UserRepository {
 
     public function user($id)
     {
-        return User::find($id);
+        $user = User::with('sales')->find($id);
+        return $user;
     }
 
     public function paginated($total = 10)
     {
-        return User::paginate($total);
+        return User::with('sales')->paginate($total);
     }
 
     public function all()

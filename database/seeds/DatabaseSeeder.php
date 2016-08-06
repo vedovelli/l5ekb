@@ -12,6 +12,16 @@ class DatabaseSeeder extends Seeder // php artisan db:seed
     public function run()
     {
         $this->call(UsersTableSeeder::class);
+        $this->call(SalesTableSeeder::class);
+    }
+}
+
+class SalesTableSeeder extends Seeder
+{
+    public function run()
+    {
+        \DB::table('sales')->truncate();
+        factory(\Louis\Models\Sale::class, 1000)->create();
     }
 }
 
