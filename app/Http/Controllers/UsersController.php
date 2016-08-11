@@ -22,7 +22,8 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users = $this->userRepository->paginated();
+        $currentPage = \Request::get('page');
+        $users = $this->userRepository->paginated(10, $currentPage);
         $addresses = [];
         return view('users.index')->with(compact('users', 'addresses'));
     }

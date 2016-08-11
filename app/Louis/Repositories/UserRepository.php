@@ -1,7 +1,9 @@
 <?php
 
 namespace Louis\Repositories;
+
 use Louis\Models\User;
+use Cache;
 
 class UserRepository {
 
@@ -11,9 +13,14 @@ class UserRepository {
         return $user;
     }
 
-    public function paginated($total = 10)
+    public function paginated($total = 10, $currentPage = 1)
     {
-        return User::with('sales')->paginate($total);
+        $expiration = 60; // minutos
+        $key = 'user_' . $currentPage;
+
+        return Cache::remember($key, $expiration, function () use ($total) {
+            return User::with('sales')->paginate($total);
+        });
     }
 
     public function all()
