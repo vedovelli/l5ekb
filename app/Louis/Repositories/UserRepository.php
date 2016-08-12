@@ -25,7 +25,12 @@ class UserRepository {
 
     public function all()
     {
-        return User::all();
+        $expiration = 60; // minutos
+        $key = 'user';
+
+        return Cache::remember($key, $expiration, function () {
+            return User::all();
+        });
     }
 
     public function store($input)

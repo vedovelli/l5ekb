@@ -19,7 +19,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return 'Nanananananan Batman';
+        return view('categories.index');
     }
 
     /**

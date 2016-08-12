@@ -16,6 +16,7 @@
     </div>
 
     @include('partials.alerts')
+    @include('partials.userCount')
 
     <table class="table table-bordered table-striped">
         <thead>
